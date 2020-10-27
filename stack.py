@@ -18,7 +18,7 @@ class Stack:
         return len(self.items)
 
 
-def parChecker(symbolString):
+def par_checker(symbolString):
     """
     checks if parentheses are balanced
     :param symbolString:
@@ -43,4 +43,3 @@ def parChecker(symbolString):
         return True
     else:
         return False
-
