@@ -18,7 +18,7 @@ class Stack:  # a stack of blocks
         return len(self.items)
 
 
-### some tasks where a Stack would come in handy:  ###
+""" some tasks where a Stack would come in handy:  """
 
 
 def par_checker(symbolString):

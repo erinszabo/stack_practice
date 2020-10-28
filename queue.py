@@ -91,26 +91,3 @@ def newPrintTask():
 for i in range(10):
     simulation(3600,5)
 """
-
-
-class Deque:  # like a deck of cards on a table
-    def __init__(self):
-        self.items = []
-
-    def isEmpty(self):
-        return self.items == []
-
-    def addFront(self, item):  # plop new card right on top O(1)
-        self.items.append(item)
-
-    def addRear(self, item):  # lift the whole deck to place a new card underneath the deck O(n)
-        self.items.insert(0, item)
-
-    def removeFront(self):
-        return self.items.pop()
-
-    def removeRear(self):
-        return self.items.pop(0)
-
-    def size(self):
-        return len(self.items)
