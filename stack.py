@@ -1,21 +1,24 @@
-class Stack:
+class Stack:  # a stack of blocks
     def __init__(self):
         self.items = []
 
     def is_empty(self):
         return self.items == []
 
-    def push(self, item):
+    def push(self, item):  # place a new block on the stack
         self.items.append(item)
 
-    def pop(self):
+    def pop(self):  # look at and remove the top block
         return self.items.pop()
 
-    def peek(self):
+    def peek(self):  # just look at the top block
         return self.items[len(self.items) - 1]
 
     def size(self):
         return len(self.items)
+
+
+### some tasks where a Stack would come in handy:  ###
 
 
 def par_checker(symbolString):
