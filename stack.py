@@ -43,3 +43,73 @@ def par_checker(symbolString):
         return True
     else:
         return False
+
+
+def base_2(decNumber):
+    remstack = Stack()
+
+    while decNumber > 0:
+        rem = decNumber % 2
+        remstack.push(rem)
+        decNumber = decNumber // 2
+
+    binString = ""
+    while not remstack.is_empty():
+        binString = binString + str(remstack.pop())
+
+    return binString
+
+
+def base_converter(decNumber, base):
+    """
+    Converts to any base
+    :param decNumber: num to be converted in dec form
+    :param base: desired base
+    :return: given value in the new base
+    """
+    digits = "0123456789ABCDEF"
+
+    remstack = Stack()
+
+    while decNumber > 0:
+        rem = decNumber % base
+        remstack.push(rem)
+        decNumber = decNumber // base
+
+    newString = ""
+    while not remstack.is_empty():
+        newString = newString + digits[remstack.pop()]
+
+    return newString
+
+
+def infixToPostfix(infixexpr):
+    prec = {}
+    prec["*"] = 3
+    prec["/"] = 3
+    prec["+"] = 2
+    prec["-"] = 2
+    prec["("] = 1
+    opStack = Stack()
+    postfixList = []
+    tokenList = infixexpr.split()
+
+    for token in tokenList:
+        if token in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or token in "0123456789":
+            postfixList.append(token)
+        elif token == '(':
+            opStack.push(token)
+        elif token == ')':
+            topToken = opStack.pop()
+            while topToken != '(':
+                postfixList.append(topToken)
+                topToken = opStack.pop()
+        else:
+            while (not opStack.is_empty()) and \
+                    (prec[opStack.peek()] >= prec[token]):
+                postfixList.append(opStack.pop())
+            opStack.push(token)
+
+    while not opStack.is_empty():
+        postfixList.append(opStack.pop())
+    return " ".join(postfixList)
