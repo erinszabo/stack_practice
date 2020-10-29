@@ -14,6 +14,11 @@ def binarySearch(alist, item):
 
 testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42, ]
 
-
+"""
+    tests:
 print(binarySearch(testlist, 3))
 print(binarySearch(testlist, 13))
+print(27 % 13)
+print(130 % 13)
+"""
+
