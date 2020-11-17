@@ -5,6 +5,13 @@ class Queue:  # a line, obviously
     def __init__(self):
         self.items = []
 
+    def __str__(self):
+        st = []
+        if not self.isEmpty():
+            for i in range(self.size()):
+                st.append(self.dequeue())
+        return str(st)
+
     def isEmpty(self):
         return self.items == []
 
